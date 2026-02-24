@@ -992,6 +992,13 @@ body.light-mode .close-sidebar-btn {
   border-color: var(--accent-color);
 }
 
+/* Ẩn nút close trên các màn hình lớn hơn 768px */
+@media (min-width: 769px) {
+  .close-sidebar-btn {
+    display: none !important;
+  }
+}
+
 @media (max-width: 1200px) {
   .projects-grid {
     grid-template-columns: 1fr;
