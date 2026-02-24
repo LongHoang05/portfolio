@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinksList = document.querySelector('.nav-links');
 
-    // Smooth scrolling and scroll spy logic
+    // Smooth scrolling with offset for sticky header
+    const headerOffset = 100; // Adjust this based on your sticky nav height + some padding
+
     navButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -13,7 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.getElementById(targetTabId);
 
             if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
             }
 
             // On mobile, close menu after clicking
@@ -26,20 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll spy: update active nav link based on scroll position
     window.addEventListener('scroll', () => {
         let current = '';
+        const scrollPosition = window.scrollY + headerOffset + 50; // Add offset to trigger slightly earlier
+
         tabContents.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - sectionHeight / 3)) {
+            const sectionHeight = section.offsetHeight;
+
+            // Check if scroll position is within this section
+            if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
                 current = section.getAttribute('id');
             }
         });
 
-        navButtons.forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.getAttribute('data-tab') === current) {
-                btn.classList.add('active');
-            }
-        });
+        // Fallback for bottom of the page (to select the last item if we can't scroll further)
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+            current = tabContents[tabContents.length - 1].getAttribute('id');
+        }
+
+        if (current) {
+            navButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-tab') === current) {
+                    btn.classList.add('active');
+                }
+            });
+        }
     });
 
     // Mobile menu toggle

@@ -414,10 +414,8 @@ textarea {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 140px;
-    height: 140px;
+    bottom: 45px;
+    right: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
