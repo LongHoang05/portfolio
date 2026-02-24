@@ -1,402 +1,661 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nguyen Hoang Long - Web Developer & UI/UX Designer</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+  <div class="cursor-glow"></div>
 
-<body class="dark-theme">
+  <body class="dark-theme">
     <div class="app-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 512"
+              style="transform: scaleX(-1)"
+            >
+              <path
+                d=" M352 124.5l-51.9-13c-6.5-1.6-11.3-7.1-12-13.8s2.8-13.1
+                        8.7-16.1l40.8-20.4-43.3-32.5c-5.5-4.1-7.8-11.3-5.6-17.9S297.1 0 304 0L464 0c30.2 0 58.7 14.2
+                        76.8 38.4l57.6 76.8c6.2 8.3 9.6 18.4 9.6 28.8 0 26.5-21.5 48-48 48l-21.5 0c-17
+                        0-33.3-6.7-45.3-18.7l-13.3-13.3-32 0 0 21.5c0 24.8 12.8 47.9 33.8 61.1l106.6 66.6c32.1 20.1 51.6
+                        55.2 51.6 93.1 0 60.6-49.1 109.8-109.8 109.8L32.3 512c-3.3
+                        0-6.6-.4-9.6-1.4-9.2-2.8-16.7-9.6-20.4-18.6-1.3-3.3-2.2-6.9-2.3-10.7-.2-3.7 .3-7.3 1.3-10.7
+                        2.8-9.2 9.6-16.7 18.6-20.4 3-1.2 6.2-2 9.5-2.2L433.3 412c8.3-.7 14.7-7.7 14.7-16.1
+                        0-4.3-1.7-8.4-4.7-11.4l-44.4-44.4c-30-30-46.9-70.7-46.9-113.1l0-102.5zM512 72.3c0-.1 0-.2
+                        0-.3s0-.2 0-.3l0 .6zm-1.3 7.4L464.3 68.1c-.2 1.3-.3 2.6-.3 3.9 0 13.3 10.7 24 24 24 10.6 0
+                        19.5-6.8 22.7-16.3zM130.9 116.5c16.3-14.5 40.4-16.2 58.5-4.1l130.6 87 0 27.5c0 32.8 8.4 64.8 24
+                        93l-232 0c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7L171 232.3 18.4 255.8c-7
+                        1.1-13.9-2.6-16.9-9S.1 232.8 5.4 228L130.9 116.5z"
+              />
+            </svg>
 
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                    <svg class="icon " width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 640 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
-                        <path                            
-                            d="M352 124.5l-51.9-13c-6.5-1.6-11.3-7.1-12-13.8s2.8-13.1 8.7-16.1l40.8-20.4-43.3-32.5c-5.5-4.1-7.8-11.3-5.6-17.9S297.1 0 304 0L464 0c30.2 0 58.7 14.2 76.8 38.4l57.6 76.8c6.2 8.3 9.6 18.4 9.6 28.8 0 26.5-21.5 48-48 48l-21.5 0c-17 0-33.3-6.7-45.3-18.7l-13.3-13.3-32 0 0 21.5c0 24.8 12.8 47.9 33.8 61.1l106.6 66.6c32.1 20.1 51.6 55.2 51.6 93.1 0 60.6-49.1 109.8-109.8 109.8L32.3 512c-3.3 0-6.6-.4-9.6-1.4-9.2-2.8-16.7-9.6-20.4-18.6-1.3-3.3-2.2-6.9-2.3-10.7-.2-3.7 .3-7.3 1.3-10.7 2.8-9.2 9.6-16.7 18.6-20.4 3-1.2 6.2-2 9.5-2.2L433.3 412c8.3-.7 14.7-7.7 14.7-16.1 0-4.3-1.7-8.4-4.7-11.4l-44.4-44.4c-30-30-46.9-70.7-46.9-113.1l0-102.5zM512 72.3c0-.1 0-.2 0-.3s0-.2 0-.3l0 .6zm-1.3 7.4L464.3 68.1c-.2 1.3-.3 2.6-.3 3.9 0 13.3 10.7 24 24 24 10.6 0 19.5-6.8 22.7-16.3zM130.9 116.5c16.3-14.5 40.4-16.2 58.5-4.1l130.6 87 0 27.5c0 32.8 8.4 64.8 24 93l-232 0c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7L171 232.3 18.4 255.8c-7 1.1-13.9-2.6-16.9-9S.1 232.8 5.4 228L130.9 116.5z" />
-                    </svg>
+            <h2>Long Hoàng</h2>
+          </div>
+        </div>
 
-                    <h2>Long Hoàng</h2>
+        <div class="avatar-container animate-fade-in-up">
+          <img src="assets/lh.jpg" alt="Hoang Long Avatar" class="avatar" />
+        </div>
+
+        <div class="info-block specialization">
+          <span class="label">Specialization:</span>
+          <p>Frontend developer<br />& UI/UX enthusiast</p>
+        </div>
+
+        <div class="info-block location">
+          <span class="label">Based in:</span>
+          <p>Hanoi, Vietnam</p>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="Facebook"
+            ><svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Facebook</title>
+              <path
+                d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
+              /></svg
+          ></a>
+          <a href="#" class="social-icon" aria-label="Zalo"
+            ><svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Zalo</title>
+              <path
+                d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z"
+              /></svg
+          ></a>
+          <a href="#" class="social-icon" aria-label="Github"
+            ><svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>GitHub</title>
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              /></svg
+          ></a>
+        </div>
+
+        <button class="btn btn-primary cta-btn">Let's Work Together!</button>
+      </aside>
+
+      <main class="main-content">
+        <nav class="top-nav">
+          <button class="mobile-menu-btn d-none">
+            <svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+
+          <ul class="nav-links">
+            <li>
+              <button class="nav-btn active" data-tab="home">Home</button>
+            </li>
+            <li>
+              <button class="nav-btn" data-tab="portfolio">Portfolio</button>
+            </li>
+            <li><button class="nav-btn" data-tab="about">About Me</button></li>
+            <li><button class="nav-btn" data-tab="resume">Resume</button></li>
+            <li><button class="nav-btn" data-tab="contact">Contact</button></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="theme-toggle" aria-label="Toggle Theme">
+              <svg
+                class="icon"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+                data-slot="icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                />
+              </svg>
+            </button>
+            <button class="btn btn-secondary">
+              Let's Talk
+              <svg
+                class="icon"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                data-slot="icon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.804 21.644A6.707 6.707 0 0 0 6 21.75a6.721 6.721 0 0 0 3.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 0 1-.814 1.686.75.75 0 0 0 .44 1.223ZM8.25 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </nav>
+
+        <section class="tab-content active" id="home">
+          <div class="gradient-sphere-container"></div>
+          <div class="content-wrapper">
+            <div class="tag animate-fade-in-up delay-100">
+              <svg
+                class="icon"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                data-slot="icon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Let's meet!
+            </div>
+            <h1 class="hero-title animate-fade-in-up delay-200">
+              I'm Nguyen Hoang Long<br />
+              <span class="highlight">Web Developer</span> and<br />
+              UI/UX enthusiast.
+            </h1>
+            <div class="hero-actions animate-fade-in-up delay-300">
+              <button
+                class="btn btn-dark"
+                onclick="
+                  document.querySelector('[data-tab=\'portfolio\']').click()
+                "
+              >
+                My Works
+                <svg
+                  class="icon"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <a href="#" class="download-link"
+                >Download CV
+                <svg
+                  class="icon"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="scroll-indicator">
+            <div class="scroll-circle spin-continuous">
+              <svg viewBox="0 0 100 100" width="100" height="100">
+                <defs>
+                  <path
+                    id="circlePath"
+                    d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                  />
+                </defs>
+                <text font-size="9" font-weight="500" letter-spacing="2">
+                  <textPath href="#circlePath" startOffset="0%">
+                    SCROLL FOR MORE • SCROLL FOR MORE •
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+            <svg
+              class="icon arrow-center"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+              />
+            </svg>
+          </div>
+        </section>
+
+        <section class="tab-content" id="portfolio">
+          <div class="tag">
+            <svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Portfolio
+          </div>
+          <h2 class="section-title">Check out my featured<br />projects</h2>
+
+          <div class="portfolio-grid">
+            <div class="project-card reveal-item orange-bg">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
+                alt="Dashboard"
+                class="project-img mix-blend-mode"
+              />
+              <div class="project-tags">
+                <span class="p-tag">React & Tailwind</span>
+                <span class="p-tag">The Gioi Dua Dashboard</span>
+              </div>
+            </div>
+            <div class="project-card reveal-item purple-bg">
+              <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000"
+                alt="Code App"
+                class="project-img mix-blend-mode"
+              />
+              <div class="project-tags">
+                <span class="p-tag">Tauri Framework</span>
+                <span class="p-tag">Desktop App</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-content" id="about">
+          <div class="tag">
+            <svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            About Me
+          </div>
+          <h2 class="section-title">
+            Turning complex problems<br />into simple design
+          </h2>
+
+          <div class="stats-row">
+            <div class="stat-box reveal-item">
+              <div class="stat-number">3</div>
+              <div class="stat-label">Years at UNETI</div>
+            </div>
+            <div class="stat-box reveal-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Projects done</div>
+            </div>
+            <div class="stat-box reveal-item">
+              <div class="stat-number">200+</div>
+              <div class="stat-label">Hours of coding</div>
+            </div>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text reveal-item">
+              <p>
+                I wonder if I've been changed in the night? Let me think. Was I
+                the same when I got up this morning? I almost think I can
+                remember feeling a little different. But if I'm not the same,
+                the <span class="highlight">next question</span> is "Who in the
+                world am I?". Ah, that's the great puzzle!
+              </p>
+              <br />
+              <p>
+                Be what you would seem to be - or, if you'd like it put more
+                simply - never imagine yourself not to be otherwise than what it
+                might appear to others that what you were or
+                <span class="highlight">might have been</span> was not otherwise
+                than what you had been would have appeared to them to be
+                otherwise.
+              </p>
+
+              <a
+                href="#"
+                class="btn btn-secondary download-btn"
+                style="margin-top: 2rem"
+                >Download CV <i class="ph ph-download-simple"></i
+              ></a>
+            </div>
+            <div class="about-info reveal-item delay-100">
+              <div class="info-item">
+                <div class="label">Name</div>
+                <div class="value">Nguyen Hoang Long</div>
+              </div>
+              <div class="info-item">
+                <div class="label">University</div>
+                <div class="value">UNETI Hanoi</div>
+              </div>
+              <div class="info-item">
+                <div class="label">Email</div>
+                <div class="value">long.nguyen@student.uneti.edu.vn</div>
+              </div>
+              <div class="info-item">
+                <div class="label">Location</div>
+                <div class="value">Hanoi, Vietnam</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-content scrollable" id="resume">
+          <div class="tag">
+            <svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Resume
+          </div>
+          <h2 class="section-title">Education and practical<br />experience</h2>
+          <p class="section-subtitle">
+            Be what you would seem to be - or, if you'd like it put more simply
+            - never imagine yourself not to be otherwise than what it might
+            appear to others that what you were or
+            <span class="highlight">might have been</span> was not otherwise
+            than what you had been would have appeared to them to be otherwise.
+          </p>
+
+          <h3 class="subsection-title">My education</h3>
+          <div class="timeline">
+            <div class="timeline-item border-none reveal-item">
+              <div class="timeline-year">2023 - Present</div>
+              <div class="timeline-content">
+                <h4 class="timeline-role">
+                  Undergraduate Student - Information Technology
+                </h4>
+                <div class="timeline-place">
+                  University of Economics - Technology for Industries (UNETI)
                 </div>
+              </div>
+              <div class="timeline-desc">
+                Focusing on software engineering, data structures, and web
+                development. Actively participating in UI/UX and frontend
+                projects.
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Work experience</h3>
+          <div class="timeline">
+            <div class="timeline-item border-none reveal-item">
+              <div class="timeline-year">2025 - Present</div>
+              <div class="timeline-content">
+                <h4 class="timeline-role">Frontend Developer & UI Designer</h4>
+                <div class="timeline-place">The Gioi Dua Project</div>
+              </div>
+              <div class="timeline-desc">
+                Designed wireframes and developed an inventory and order
+                management dashboard using React and Tailwind CSS. Optimized
+                internal user experience.
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">My favourite tools</h3>
+          <div class="tools-grid">
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/html5.svg" alt="" />
+              <span>HTML</span>
+            </div>
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/css_old.svg" alt="" />
+              <span>CSS</span>
+            </div>
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/javascript.svg" alt="" />
+              <span>JavaScript</span>
+            </div>
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/React_dark.svg" alt="" />
+              <span>React</span>
+            </div>
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/tailwindcss.svg" alt="" />
+              <span>Tailwind</span>
             </div>
 
-            <div class="avatar-container">
-                <img src="assets/lh.jpg" alt="Hoang Long Avatar" class="avatar">
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/java.svg" alt="" />
+              <span>Java</span>
+            </div>
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/csharp.svg" alt="" />
+              <span>C#</span>
+            </div>
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/c-plusplus.svg" alt="" />
+              <span>C++</span>
+            </div>
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/MySQL_dark.svg" alt="" />
+              <span>MySQL</span>
             </div>
 
-            <div class="info-block specialization">
-                <span class="label">Specialization:</span>
-                <p>Frontend developer<br>& UI/UX enthusiast</p>
+            <div class="tool-item reveal-item">
+              <img src="assets/imgs/figma.svg" alt="" />
+              <span>Figma</span>
             </div>
+          </div>
+        </section>
 
-            <div class="info-block location">
-                <span class="label">Based in:</span>
-                <p>Hanoi, Vietnam</p>
+        <section class="tab-content" id="contact">
+          <div class="tag">
+            <svg
+              class="icon"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Contact
+          </div>
+          <h2 class="section-title">
+            Let's make something<br />awesome together!
+          </h2>
+
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="Your Name*"
+                />
+              </div>
+              <div class="input-group">
+                <input type="text" id="company" placeholder="Company Name" />
+              </div>
             </div>
-
-            <div class="social-links">
-                <a href="#" class="social-icon" aria-label="Facebook"><svg class="icon " width="1em" height="1em"
-                        fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <title>Facebook</title>
-                        <path
-                            d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
-                    </svg></a>
-                <a href="#" class="social-icon" aria-label="Zalo"><svg class="icon " width="1em" height="1em"
-                        fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <title>Zalo</title>
-                        <path
-                            d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z" />
-                    </svg></a>
-                <a href="#" class="social-icon" aria-label="Github"><svg class="icon " width="1em" height="1em"
-                        fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <title>GitHub</title>
-                        <path
-                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                    </svg></a>
+            <div class="form-row">
+              <div class="input-group">
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="Email Address*"
+                />
+              </div>
+              <div class="input-group">
+                <input
+                  type="tel"
+                  id="phone"
+                  required
+                  placeholder="Phone Number*"
+                />
+              </div>
             </div>
-
-            <button class="btn btn-primary cta-btn">Let's Work Together!</button>
-        </aside>
-
-        <main class="main-content">
-            <nav class="top-nav">
-                <button class="mobile-menu-btn d-none">
-                    <svg class="icon " width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                        data-slot="icon">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-
-                </button>
-
-                <ul class="nav-links">
-                    <li><button class="nav-btn active" data-tab="home">Home</button></li>
-                    <li><button class="nav-btn" data-tab="portfolio">Portfolio</button></li>
-                    <li><button class="nav-btn" data-tab="about">About Me</button></li>
-                    <li><button class="nav-btn" data-tab="resume">Resume</button></li>
-                    <li><button class="nav-btn" data-tab="contact">Contact</button></li>
-                </ul>
-                <div class="nav-actions">
-                    <button class="theme-toggle" aria-label="Toggle Theme"><svg class="icon " width="1em" height="1em"
-                            fill="currentColor" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-                        </svg>
-                    </button>
-                    <button class="btn btn-secondary">Let's Talk <svg class="icon " width="1em" height="1em"
-                            fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                            fill="currentColor" aria-hidden="true" data-slot="icon">
-                            <path fill-rule="evenodd"
-                                d="M4.804 21.644A6.707 6.707 0 0 0 6 21.75a6.721 6.721 0 0 0 3.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 0 1-.814 1.686.75.75 0 0 0 .44 1.223ZM8.25 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-            </nav>
-
-            <section class="tab-content active" id="home">
-                <div class="gradient-sphere-container"></div>
-                <div class="content-wrapper">
-                    <div class="tag"><svg class="icon " width="1em" height="1em" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                            aria-hidden="true" data-slot="icon">
-                            <path fill-rule="evenodd"
-                                d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        Let's meet!</div>
-                    <h1 class="hero-title">
-                        I'm Nguyen Hoang Long<br>
-                        <span class="highlight">Web Developer</span> and<br>
-                        UI/UX enthusiast.
-                    </h1>
-                    <div class="hero-actions">
-                        <button class="btn btn-dark"
-                            onclick="document.querySelector('[data-tab=\'portfolio\']').click()">
-                            My Works <svg class="icon " width="1em" height="1em" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                aria-hidden="true" data-slot="icon">
-                                <path fill-rule="evenodd"
-                                    d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-
-                        </button>
-                        <a href="#" class="download-link">Download CV <svg class="icon " width="1em" height="1em"
-                                fill="currentColor" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="scroll-indicator">
-                    <div class="scroll-circle">
-                        <svg viewBox="0 0 100 100" width="100" height="100">
-                            <defs>
-                                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
-                            </defs>
-                            <text font-size="9" font-weight="500" letter-spacing="2">
-                                <textPath href="#circlePath" startOffset="0%">
-                                    SCROLL FOR MORE • SCROLL FOR MORE •
-                                </textPath>
-                            </text>
-                        </svg>
-                    </div>
-                    <svg class="icon arrow-center" width="1em" height="1em" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" data-slot="icon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-                    </svg>
-
-                </div>
-            </section>
-
-            <section class="tab-content" id="portfolio">
-                <div class="tag"><svg class="icon " width="1em" height="1em" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        data-slot="icon">
-                        <path fill-rule="evenodd"
-                            d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    Portfolio</div>
-                <h2 class="section-title">Check out my featured<br>projects</h2>
-
-                <div class="portfolio-grid">
-                    <div class="project-card orange-bg">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
-                            alt="Dashboard" class="project-img mix-blend-mode">
-                        <div class="project-tags">
-                            <span class="p-tag">React & Tailwind</span>
-                            <span class="p-tag">The Gioi Dua Dashboard</span>
-                        </div>
-                    </div>
-                    <div class="project-card purple-bg">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000"
-                            alt="Code App" class="project-img mix-blend-mode">
-                        <div class="project-tags">
-                            <span class="p-tag">Tauri Framework</span>
-                            <span class="p-tag">Desktop App</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="tab-content" id="about">
-                <div class="tag"><svg class="icon " width="1em" height="1em" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        data-slot="icon">
-                        <path fill-rule="evenodd"
-                            d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    About Me</div>
-                <h2 class="section-title">Turning complex problems<br>into simple design</h2>
-
-                <div class="stats-row">
-                    <div class="stat-box">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Years at UNETI</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Projects done</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">200+</div>
-                        <div class="stat-label">Hours of coding</div>
-                    </div>
-                </div>
-
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>I wonder if I've been changed in the night? Let me think. Was I the same when I got up this
-                            morning? I almost think I can remember feeling a little different. But if I'm not the same,
-                            the <span class="highlight">next question</span> is "Who in the world am I?". Ah, that's the
-                            great puzzle!</p>
-                        <br>
-                        <p>Be what you would seem to be - or, if you'd like it put more simply - never imagine yourself
-                            not to be otherwise than what it might appear to others that what you were or <span
-                                class="highlight">might have been</span> was not otherwise than what you had been would
-                            have appeared to them to be otherwise.</p>
-
-                        <a href="#" class="btn btn-secondary download-btn" style="margin-top: 2rem;">Download CV <i
-                                class="ph ph-download-simple"></i></a>
-                    </div>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <div class="label">Name</div>
-                            <div class="value">Nguyen Hoang Long</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="label">University</div>
-                            <div class="value">UNETI Hanoi</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="label">Email</div>
-                            <div class="value">long.nguyen@student.uneti.edu.vn</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="label">Location</div>
-                            <div class="value">Hanoi, Vietnam</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="tab-content scrollable" id="resume">
-                <div class="tag"><svg class="icon " width="1em" height="1em" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        data-slot="icon">
-                        <path fill-rule="evenodd"
-                            d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    Resume</div>
-                <h2 class="section-title">Education and practical<br>experience</h2>
-                <p class="section-subtitle">Be what you would seem to be - or, if you'd like it put more simply - never
-                    imagine yourself not to be otherwise than what it might appear to others that what you were or <span
-                        class="highlight">might have been</span> was not otherwise than what you had been would have
-                    appeared to them to be otherwise.</p>
-
-                <h3 class="subsection-title">My education</h3>
-                <div class="timeline">
-                    <div class="timeline-item border-none">
-                        <div class="timeline-year">2023 - Present</div>
-                        <div class="timeline-content">
-                            <h4 class="timeline-role">Undergraduate Student - Information Technology</h4>
-                            <div class="timeline-place">University of Economics - Technology for Industries (UNETI)
-                            </div>
-                        </div>
-                        <div class="timeline-desc">Focusing on software engineering, data structures, and web
-                            development. Actively participating in UI/UX and frontend projects.</div>
-                    </div>
-                </div>
-
-                <h3 class="subsection-title">Work experience</h3>
-                <div class="timeline">
-                    <div class="timeline-item border-none">
-                        <div class="timeline-year">2025 - Present</div>
-                        <div class="timeline-content">
-                            <h4 class="timeline-role">Frontend Developer & UI Designer</h4>
-                            <div class="timeline-place">The Gioi Dua Project</div>
-                        </div>
-                        <div class="timeline-desc">Designed wireframes and developed an inventory and order management
-                            dashboard using React and Tailwind CSS. Optimized internal user experience.</div>
-                    </div>
-                </div>
-
-                <h3 class="subsection-title">My favourite tools</h3>
-                <div class="tools-grid">
-                    <div class="tool-item">
-                        <img src="assets/imgs/html5.svg" alt="">
-                        <span>HTML</span>
-                    </div>
-                    <div class="tool-item">
-                        <img src="assets/imgs/css_old.svg" alt="">
-                        <span>CSS</span>
-                    </div>
-                    <div class="tool-item">
-                        <img src="assets/imgs/javascript.svg" alt="">
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="tool-item">
-                        <img src="assets/imgs/React_dark.svg" alt="">
-                        <span>React</span>
-                    </div>
-                    <div class="tool-item">
-                        <img src="assets/imgs/tailwindcss.svg" alt="">
-                        <span>Tailwind</span>
-                    </div>
-
-                    <div class="tool-item">
-                        <img src="assets/imgs/java.svg" alt="">
-                        <span>Java</span>
-                    </div>
-                    <div class="tool-item">
-                        <img src="assets/imgs/csharp.svg" alt="">
-                        <span>C#</span>
-                    </div>
-                    <div class="tool-item">
-                        <img src="assets/imgs/c-plusplus.svg" alt="">
-                        <span>C++</span>
-                    </div>
-                    <div class="tool-item">
-                        <img src="assets/imgs/MySQL_dark.svg" alt="">
-                        <span>MySQL</span>
-                    </div>
-
-                    <div class="tool-item">
-                        <img src="assets/imgs/figma.svg" alt="">
-                        <span>Figma</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="tab-content" id="contact">
-                <div class="tag"><svg class="icon " width="1em" height="1em" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        data-slot="icon">
-                        <path fill-rule="evenodd"
-                            d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    Contact</div>
-                <h2 class="section-title">Let's make something<br>awesome together!</h2>
-
-                <form class="contact-form">
-                    <div class="form-row">
-                        <div class="input-group">
-                            <input type="text" id="name" required placeholder="Your Name*">
-                        </div>
-                        <div class="input-group">
-                            <input type="text" id="company" placeholder="Company Name">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="input-group">
-                            <input type="email" id="email" required placeholder="Email Address*">
-                        </div>
-                        <div class="input-group">
-                            <input type="tel" id="phone" required placeholder="Phone Number*">
-                        </div>
-                    </div>
-                    <div class="input-group full-width">
-                        <textarea id="message" required placeholder="A Few Words*"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary submit-btn">
-                        Send Message <svg class="icon " width="1em" height="1em" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" aria-hidden="true" data-slot="icon">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-                        </svg>
-
-                    </button>
-                </form>
-            </section>
-        </main>
+            <div class="input-group full-width">
+              <textarea
+                id="message"
+                required
+                placeholder="A Few Words*"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary submit-btn">
+              Send Message
+              <svg
+                class="icon"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+                data-slot="icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                />
+              </svg>
+            </button>
+          </form>
+        </section>
+      </main>
     </div>
 
     <div class="bg-gradient bg-gradient-1"></div>
     <div class="bg-gradient bg-gradient-2"></div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
