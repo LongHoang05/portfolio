@@ -254,10 +254,11 @@ textarea {
     align-items: center;
     padding: 24px 0 24px 0;
     position: sticky;
-    top: -24px;
+    top: 0;
     z-index: 100;
     background-color: var(--bg-main);
     margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .mobile-menu-btn {
@@ -427,6 +428,9 @@ textarea {
 .scroll-circle {
     width: 100%;
     height: 100%;
+}
+
+.scroll-circle svg {
     animation: rotate 15s linear infinite;
 }
 
