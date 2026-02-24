@@ -467,10 +467,10 @@ textarea {
   color: var(--text-light);
 }
 
-/* ===================== PORTFOLIO TAB ===================== */
-.portfolio-grid {
+/* ===================== PROJECTS TAB ===================== */
+.projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 2fr;
   gap: 32px;
 }
 
@@ -712,6 +712,13 @@ textarea {
 }
 
 /* Staggered Delay cho lưới Tools */
+.tools-grid .tool-item.visible {
+  transition: var(
+    --transition
+  ); /* Reset to snappy hover speed after reveal is done */
+}
+
+/* Staggered Delay cho lưới Tools */
 .tools-grid .tool-item.reveal-item:nth-child(1) {
   transition-delay: 0.1s;
 }
@@ -845,7 +852,7 @@ textarea::placeholder {
     font-size: 3rem;
   }
 
-  .portfolio-grid {
+  .projects-grid {
     grid-template-columns: 1fr;
   }
 
