@@ -60,27 +60,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   const navLinksList = document.querySelector(".nav-links");
 
-  // Intersection Observer for scroll reveals
+  // ==========================================
+  // SCROLL REVEAL ANIMATION (INTERSECTION OBSERVER)
+  // ==========================================
   const revealElements = document.querySelectorAll(".reveal-item");
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target); // Play animation only once
-        }
-      });
-    },
-    {
-      root: null,
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    },
-  );
 
-  revealElements.forEach((el) => {
-    revealObserver.observe(el);
-  });
+  const revealOptions = {
+    root: null,
+    rootMargin: "0px 0px -50px 0px", // Kích hoạt khi phần tử nhô lên 50px từ đáy màn hình
+    threshold: 0.1,
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        // Ngừng theo dõi sau khi đã hiển thị để tối ưu hiệu năng
+        observer.unobserve(entry.target);
+      }
+    });
+  }, revealOptions);
+
+  revealElements.forEach((el) => revealObserver.observe(el));
 
   // Smooth scrolling with offset for sticky header
   const headerOffset = 100; // Adjust this based on your sticky nav height + some padding
