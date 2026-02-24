@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <div class="cursor-glow"></div>
+  <div style="display: none" class="cursor-glow"></div>
 
   <body class="dark-theme">
     <div class="app-container">
@@ -51,7 +51,7 @@
           </div>
         </div>
 
-        <div class="avatar-container animate-fade-in-up">
+        <div class="avatar-container">
           <img src="assets/lh.jpg" alt="Hoang Long Avatar" class="avatar" />
         </div>
 
@@ -199,7 +199,7 @@
         <section class="tab-content active" id="home">
           <div class="gradient-sphere-container"></div>
           <div class="content-wrapper">
-            <div class="tag animate-fade-in-up delay-100">
+            <div class="tag">
               <svg
                 class="icon"
                 width="1em"
@@ -219,12 +219,12 @@
               </svg>
               Let's meet!
             </div>
-            <h1 class="hero-title animate-fade-in-up delay-200">
+            <h1 class="hero-title">
               I'm Nguyen Hoang Long<br />
               <span class="highlight">Web Developer</span> and<br />
               UI/UX enthusiast.
             </h1>
-            <div class="hero-actions animate-fade-in-up delay-300">
+            <div class="hero-actions">
               <button
                 class="btn btn-dark"
                 onclick="
@@ -276,7 +276,7 @@
           </div>
 
           <div class="scroll-indicator">
-            <div class="scroll-circle spin-continuous">
+            <div class="scroll-circle">
               <svg viewBox="0 0 100 100" width="100" height="100">
                 <defs>
                   <path
@@ -337,7 +337,7 @@
           <h2 class="section-title">Check out my featured<br />projects</h2>
 
           <div class="portfolio-grid">
-            <div class="project-card reveal-item orange-bg">
+            <div class="project-card orange-bg">
               <img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
                 alt="Dashboard"
@@ -348,15 +348,15 @@
                 <span class="p-tag">The Gioi Dua Dashboard</span>
               </div>
             </div>
-            <div class="project-card reveal-item purple-bg">
+            <div class="project-card purple-bg">
               <img
                 src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000"
                 alt="Code App"
                 class="project-img mix-blend-mode"
               />
               <div class="project-tags">
-                <span class="p-tag">Tauri Framework</span>
-                <span class="p-tag">Desktop App</span>
+                <span class="p-tag dark">Tauri Framework</span>
+                <span class="p-tag dark">Desktop App</span>
               </div>
             </div>
           </div>
@@ -388,22 +388,22 @@
           </h2>
 
           <div class="stats-row">
-            <div class="stat-box reveal-item">
+            <div class="stat-box">
               <div class="stat-number">3</div>
               <div class="stat-label">Years at UNETI</div>
             </div>
-            <div class="stat-box reveal-item">
+            <div class="stat-box">
               <div class="stat-number">10+</div>
               <div class="stat-label">Projects done</div>
             </div>
-            <div class="stat-box reveal-item">
+            <div class="stat-box">
               <div class="stat-number">200+</div>
               <div class="stat-label">Hours of coding</div>
             </div>
           </div>
 
           <div class="about-grid">
-            <div class="about-text reveal-item">
+            <div class="about-text">
               <p>
                 I wonder if I've been changed in the night? Let me think. Was I
                 the same when I got up this morning? I almost think I can
@@ -425,10 +425,25 @@
                 href="#"
                 class="btn btn-secondary download-btn"
                 style="margin-top: 2rem"
-                >Download CV <i class="ph ph-download-simple"></i
-              ></a>
+                >Download CV
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  width="1em"
+                  height="1em"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+              </a>
             </div>
-            <div class="about-info reveal-item delay-100">
+            <div class="about-info">
               <div class="info-item">
                 <div class="label">Name</div>
                 <div class="value">Nguyen Hoang Long</div>
@@ -481,7 +496,7 @@
 
           <h3 class="subsection-title">My education</h3>
           <div class="timeline">
-            <div class="timeline-item border-none reveal-item">
+            <div class="timeline-item border-none">
               <div class="timeline-year">2023 - Present</div>
               <div class="timeline-content">
                 <h4 class="timeline-role">
@@ -501,7 +516,7 @@
 
           <h3 class="subsection-title">Work experience</h3>
           <div class="timeline">
-            <div class="timeline-item border-none reveal-item">
+            <div class="timeline-item border-none">
               <div class="timeline-year">2025 - Present</div>
               <div class="timeline-content">
                 <h4 class="timeline-role">Frontend Developer & UI Designer</h4>
@@ -517,45 +532,45 @@
 
           <h3 class="subsection-title">My favourite tools</h3>
           <div class="tools-grid">
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/html5.svg" alt="" />
               <span>HTML</span>
             </div>
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/css_old.svg" alt="" />
               <span>CSS</span>
             </div>
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/javascript.svg" alt="" />
               <span>JavaScript</span>
             </div>
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/React_dark.svg" alt="" />
               <span>React</span>
             </div>
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/tailwindcss.svg" alt="" />
               <span>Tailwind</span>
             </div>
 
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/java.svg" alt="" />
               <span>Java</span>
             </div>
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/csharp.svg" alt="" />
               <span>C#</span>
             </div>
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/c-plusplus.svg" alt="" />
               <span>C++</span>
             </div>
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/MySQL_dark.svg" alt="" />
               <span>MySQL</span>
             </div>
 
-            <div class="tool-item reveal-item">
+            <div class="tool-item">
               <img src="assets/imgs/figma.svg" alt="" />
               <span>Figma</span>
             </div>
