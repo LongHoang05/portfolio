@@ -28,9 +28,9 @@
 }
 
 html {
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+    /* Offset for sticky nav */
 }
 
 body {
@@ -332,8 +332,6 @@ textarea {
     /* Increased bottom padding to space out sections */
     padding-top: 40px;
     /* Added top padding for scroll anchor offset */
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     min-height: 100vh;
     justify-content: center;
 }
