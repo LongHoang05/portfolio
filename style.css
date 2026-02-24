@@ -636,17 +636,33 @@ textarea {
 }
 
 .tool-item {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     background: var(--bg-card);
     border: 1px solid var(--border-light);
     border-radius: var(--border-radius-md);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-    font-size: 1.2rem;
+    gap: 8px;
     color: var(--text-light);
+    transition: var(--transition);
+}
+
+.tool-item i {
+    font-size: 32px;
+}
+
+.tool-item span {
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.tool-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ===================== CONTACT TAB ===================== */
