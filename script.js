@@ -140,9 +140,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // On mobile, close menu after clicking
-      if (window.innerWidth <= 768 && navLinksList.classList.contains("show")) {
-        navLinksList.classList.remove("show");
+      // On mobile/tablet, close sidebar after clicking a tab
+      const sidebar = document.querySelector(".sidebar");
+      const sidebarOverlay = document.querySelector(".sidebar-overlay");
+      const closeSidebarBtn = document.querySelector(".close-sidebar-btn");
+
+      if (
+        window.innerWidth <= 992 &&
+        sidebar &&
+        sidebar.classList.contains("show")
+      ) {
+        sidebar.classList.remove("show");
+        sidebarOverlay.classList.remove("show");
+        closeSidebarBtn.classList.add("d-none");
       }
     });
   });
@@ -183,11 +193,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mobile menu toggle
-  if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener("click", () => {
-      navLinksList.classList.toggle("show");
-    });
+  // Mobile menu / Sidebar toggle logic
+  const sidebar = document.querySelector(".sidebar");
+  const sidebarOverlay = document.querySelector(".sidebar-overlay");
+  const closeSidebarBtn = document.querySelector(".close-sidebar-btn");
+
+  if (mobileMenuBtn && sidebar && sidebarOverlay && closeSidebarBtn) {
+    const toggleSidebar = () => {
+      sidebar.classList.toggle("show");
+      sidebarOverlay.classList.toggle("show");
+      closeSidebarBtn.classList.toggle("d-none");
+    };
+
+    mobileMenuBtn.addEventListener("click", toggleSidebar);
+    closeSidebarBtn.addEventListener("click", toggleSidebar);
+    sidebarOverlay.addEventListener("click", toggleSidebar);
   }
 
   // ===================== THEME TOGGLE LOGIC =====================
