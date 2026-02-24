@@ -93,6 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetElement = document.getElementById(targetTabId);
 
       if (targetElement) {
+        // Re-trigger tabFadeIn animation
+        targetElement.classList.remove("active");
+        void targetElement.offsetWidth; // trigger reflow
+        targetElement.classList.add("active");
+
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition =
           elementPosition + window.pageYOffset - headerOffset;
