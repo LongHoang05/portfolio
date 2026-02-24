@@ -711,6 +711,43 @@ textarea {
   filter: brightness(1.15);
 }
 
+/* Staggered Delay cho lưới Tools */
+.tools-grid .tool-item.reveal-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(7) {
+  transition-delay: 0.7s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(8) {
+  transition-delay: 0.8s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(9) {
+  transition-delay: 0.9s;
+}
+.tools-grid .tool-item.reveal-item:nth-child(10) {
+  transition-delay: 1s;
+}
+
+/* QUAN TRỌNG: Xóa độ trễ khi hover để không làm hỏng hiệu ứng tương tác nảy lên */
+.tools-grid .tool-item.visible:hover {
+  transition-delay: 0s !important;
+}
+
 /* ===================== CONTACT TAB ===================== */
 .contact-form {
   max-width: 800px;
