@@ -90,6 +90,27 @@ body {
   background-color: var(--bg-main);
 }
 
+/* ===================== CUSTOM SCROLLBAR ===================== */
+::-webkit-scrollbar {
+  width: 8px; /* Slightly thinner than default for modern look */
+  height: 8px; /* For horizontal scrollbars if any */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main); /* Match website background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #ffcdc2 0%, #e2d1fe 100%);
+  border-radius: var(--border-radius-pill);
+  transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Use the gradient for a cool hover effect */
+  background: var(--accent-color);
+}
+
 /* Custom Cursor Glow */
 .cursor-glow {
   position: fixed;
@@ -220,7 +241,7 @@ textarea {
 /* ===================== LAYOUT ===================== */
 .app-container {
   display: flex;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   min-height: 100vh;
   padding: 24px;
@@ -355,9 +376,7 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--bg-main);
   margin-bottom: 16px;
-  border-bottom: 1px solid var(--border-light);
 }
 
 .mobile-menu-btn {
@@ -520,6 +539,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100px;
+  height: 100px;
 }
 
 .scroll-circle {
@@ -560,19 +581,58 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 0;
+
+  /* 3D Transform Properties */
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(var(--rot-x, 0deg))
+    rotateY(var(--rot-y, 0deg)) scale(var(--scale, 1));
+
+  /* Default transition when mouse leaves */
   transition:
-    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     box-shadow 0.3s ease;
 }
 
+/* 
+ * Remove transition when hovering so the card sticks to the mouse immediately
+ * without lagging behind. 
+ */
 .project-card:hover {
-  transform: translateY(-5px) scale(1.02);
+  transition:
+    transform 0s,
+    box-shadow 0.3s ease;
   box-shadow: 0 10px 30px rgba(255, 205, 194, 0.15);
   z-index: 2;
 }
 
+/* ================= GLOSS/GLARE EFFECT ================= */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius-lg);
+  /* The Glare gradient follows the mouse coordinates */
+  background: radial-gradient(
+    circle at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  opacity: 0;
+  pointer-events: none; /* Crucial: Allow clicks/hovers to pass through */
+  transition: opacity 0.4s ease;
+  z-index: 10;
+}
+
+.project-card:hover::before {
+  opacity: 1; /* Show glare on hover */
+}
+
+/* Slight scale up the inner image for depth */
 .project-card:hover .project-img {
-  transform: scale(1.03);
+  transform: scale(1.05) translateZ(20px);
 }
 
 .orange-bg {
@@ -906,33 +966,33 @@ textarea::placeholder {
 .bg-gradient {
   position: fixed;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(140px);
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.8;
 }
 
 .bg-gradient-1 {
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(
+    circle,
+    rgba(141, 107, 255, 0.4) 0%,
+    rgba(10, 10, 10, 0) 70%
+  );
+  top: -100px;
+  right: -100px;
+}
+
+.bg-gradient-2 {
   width: 800px;
   height: 800px;
   background: radial-gradient(
     circle,
-    rgba(160, 150, 255, 0.4) 0%,
+    rgba(255, 160, 122, 0.25) 0%,
     rgba(10, 10, 10, 0) 70%
   );
-  top: -200px;
-  right: -200px;
-}
-
-.bg-gradient-2 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 205, 194, 0.2) 0%,
-    rgba(10, 10, 10, 0) 70%
-  );
-  bottom: -100px;
-  left: -100px;
+  bottom: -50px;
+  left: -50px;
 }
 
 /* ===================== RESPONSIVE DESIGN ===================== */
@@ -1000,10 +1060,6 @@ body.light-mode .close-sidebar-btn {
 }
 
 @media (max-width: 1200px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
   .timeline-item {
     grid-template-columns: 100px 1fr;
   }
@@ -1014,7 +1070,7 @@ body.light-mode .close-sidebar-btn {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .app-container {
     padding: 16px;
   }
@@ -1048,9 +1104,10 @@ body.light-mode .close-sidebar-btn {
     grid-template-columns: 1fr;
   }
 
-  .stats-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .about-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 
   .hero-title {
@@ -1071,6 +1128,15 @@ body.light-mode .close-sidebar-btn {
 }
 
 @media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .download-link {
     margin-left: 20px;
   }
@@ -1100,7 +1166,7 @@ body.light-mode .close-sidebar-btn {
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .section-title {
@@ -1213,4 +1279,81 @@ body.light-mode .close-sidebar-btn {
 /* Tab Active Animation Trigger */
 .tab-content.active {
   animation: tabFadeIn 0.4s ease-out forwards;
+}
+
+/* ===================== MTP EASTER EGG MODE ===================== */
+body.mtp-mode {
+  /* Ghi đè biến CSS tạo mảng màu Sky Blue / Cyan rực rỡ */
+  --bg-main: #020617; /* Nền xanh đen sâu thẳm */
+  --accent-color: #06b6d4; /* Cyan gắt */
+  --accent-hover: #0ea5e9; /* Sky blue */
+  --border-light: rgba(6, 182, 212, 0.2);
+}
+
+body.mtp-mode .bg-gradient-1 {
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(6, 182, 212, 0.4),
+    transparent 50%
+  );
+}
+
+body.mtp-mode .bg-gradient-2 {
+  background: radial-gradient(
+    circle at 20% 80%,
+    rgba(14, 165, 233, 0.4),
+    transparent 50%
+  );
+}
+
+body.mtp-mode .cursor-glow {
+  background: linear-gradient(90deg, #67e8f9, #38bdf8);
+}
+
+body.mtp-mode .project-card:hover {
+  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+}
+
+/* Glassmorphism Toast Notification */
+.easter-egg-toast {
+  position: fixed;
+  bottom: 24px;
+  right: -400px; /* Bắt đầu ẩn ngoài màn hình bên phải */
+  width: 320px;
+  padding: 16px 20px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  border-radius: var(--border-radius-md);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(6, 182, 212, 0.2);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  z-index: 10000;
+  transition: right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy nhẹ (spring) */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.easter-egg-toast.show {
+  right: 24px; /* Trượt vào màn hình */
+}
+
+/* Tablet & Mobile: Căn giữa dưới cùng */
+@media (max-width: 768px) {
+  .easter-egg-toast {
+    bottom: -150px; /* Ẩn dưới đáy */
+    right: 24px;
+    left: 24px;
+    width: auto;
+    transition: bottom 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .easter-egg-toast.show {
+    bottom: 24px;
+  }
 }

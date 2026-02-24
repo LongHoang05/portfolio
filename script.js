@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const closeSidebarBtn = document.querySelector(".close-sidebar-btn");
 
       if (
-        window.innerWidth <= 992 &&
+        window.innerWidth <= 1024 &&
         sidebar &&
         sidebar.classList.contains("show")
       ) {
@@ -284,5 +284,109 @@ document.addEventListener("DOMContentLoaded", () => {
         contactForm.reset();
       }, 3000);
     });
+  }
+
+  // ==========================================
+  // EASTER EGG: M-T-P MODE (KEYBOARD EVENT QUEUEING)
+  // ==========================================
+
+  // 1. Khởi tạo mảng hàng đợi lưu lịch sử phím gõ
+  const keyQueue = [];
+  // 2. Định nghĩa chuỗi mật mã
+  const secretCode = ["m", "t", "p"];
+
+  // Biến cờ để ngăn chặn trigger liên tục khi đang ở MTP mode
+  let isMtpModeActive = false;
+
+  window.addEventListener("keydown", (e) => {
+    // Chỉ lấy phím chữ/số cơ bản, bỏ qua các phím điều khiển (Shift, Ctrl, v.v.)
+    if (e.key.length === 1) {
+      const key = e.key.toLowerCase();
+
+      // Đẩy phím mới gõ vào cuối hàng đợi
+      keyQueue.push(key);
+
+      // Giữ cho độ dài hàng đợi không bao giờ vượt quá chiều dài mật mã
+      // Bằng cách đẩy phần tử rác cũ nhất ở đầu (shift) ra khỏi mảng
+      if (keyQueue.length > secretCode.length) {
+        keyQueue.shift();
+      }
+
+      // So sánh: Nối mảng thành chuỗi để kiểm tra trùng khớp
+      if (keyQueue.join("") === secretCode.join("")) {
+        toggleMtpMode();
+        // Xóa mảng để tránh trigger lại ngay lập tức nếu user gõ tiếp chữ p
+        keyQueue.length = 0;
+      }
+    }
+  });
+
+  // Biến toàn cục để lưu trữ audio, giúp dừng nhạc khi tắt mode
+  let mtpAudio = null;
+
+  function toggleMtpMode() {
+    // Tránh spam
+    if (isMtpModeActive) {
+      document.body.classList.remove("mtp-mode");
+      isMtpModeActive = false;
+      if (mtpAudio) {
+        mtpAudio.pause(); // Dừng nhạc khi thoát MTP mode
+        mtpAudio.currentTime = 0;
+      }
+      return;
+    }
+
+    isMtpModeActive = true;
+
+    // 3. Đổi giao diện
+    document.body.classList.add("mtp-mode");
+
+    // 4. Phát âm thanh (Web Audio API siêu cơ bản)
+    // Sửa lại đường dẫn đúng là thư mục 'audio' (không có s)
+    if (!mtpAudio) {
+      mtpAudio = new Audio("./assets/audio/making-my-way-ST.mp3");
+      mtpAudio.volume = 0.5;
+    }
+    mtpAudio
+      .play()
+      .catch((err) => console.log("Audio autoplay prevented by browser"));
+
+    // 5. Hiển thị Toast Notification (Dynamic DOM Manipulation)
+    showEasterEggToast(
+      "🎵 Âm nhạc kết nối tâm hồn! Chào mừng đến với không gian riêng của tôi.",
+    );
+  }
+
+  function showEasterEggToast(message) {
+    // Setup nếu toast đã tồn tại thì xóa để tạo mới (chống trùng lặp DOM)
+    let existingToast = document.querySelector(".easter-egg-toast");
+    if (existingToast) {
+      existingToast.remove();
+    }
+
+    // Tạo khối DOM
+    const toast = document.createElement("div");
+    toast.className = "easter-egg-toast";
+    toast.innerHTML = `
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M229.66,41.25l-80-24A8,8,0,0,0,136,24.89V128a48,48,0,1,0,16,35.83V70.09L218.34,90.2a8,8,0,0,0,9.66-7.73V49A8,8,0,0,0,229.66,41.25ZM152,163.83A32,32,0,1,1,120,131.83,32,32,0,0,1,152,163.83ZM212,73.57l-60-18V41.09l60,18Z"></path></svg>
+      <div>${message}</div>
+    `;
+
+    document.body.appendChild(toast);
+
+    // Dùng setTimeout cực ngắn để ép trình duyệt render class rác trước khi add class .show
+    // Mẹo trigger CSS Transition cho thẻ vừa thêm vào (Reflow hook)
+    setTimeout(() => {
+      toast.classList.add("show");
+    }, 10);
+
+    // Tự động gỡ bỏ sau 5 giây
+    setTimeout(() => {
+      toast.classList.remove("show");
+      // Đợi slide out xong (0.6s) rồi xóa hẳn khỏi DOM giải phóng rác RAM
+      setTimeout(() => {
+        if (toast.parentNode) toast.remove();
+      }, 600);
+    }, 5000);
   }
 });
