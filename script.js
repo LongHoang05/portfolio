@@ -143,17 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
           btn.classList.add("active");
         }
       });
-
-      tabContents.forEach((section) => {
-        // Toggle active class to trigger tabFadeIn animation
-        if (section.getAttribute("id") === current) {
-          if (!section.classList.contains("active")) {
-            section.classList.add("active");
-          }
-        } else {
-          section.classList.remove("active");
-        }
-      });
     }
   });
 
