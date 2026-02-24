@@ -27,6 +27,12 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-main);
@@ -246,7 +252,12 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 0 40px 0;
+    padding: 24px 0 24px 0;
+    position: sticky;
+    top: -24px;
+    z-index: 100;
+    background-color: var(--bg-main);
+    margin-bottom: 16px;
 }
 
 .mobile-menu-btn {
@@ -320,6 +331,10 @@ textarea {
     /* Increased bottom padding to space out sections */
     padding-top: 40px;
     /* Added top padding for scroll anchor offset */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100vh;
+    justify-content: center;
 }
 
 /* Optional: Add a subtle border or separator between sections if desired */
@@ -470,10 +485,7 @@ textarea {
 }
 
 /* Use mix-blend-mode if images have white backgrounds, or just display them normally if they are transparent PNGs / nice photos */
-.mix-blend-mode {
-    /* If you want to blend white background images: */
-    /* mix-blend-mode: multiply; */
-}
+/* .mix-blend-mode { mix-blend-mode: multiply; } */
 
 .project-tags {
     position: absolute;
