@@ -650,8 +650,12 @@ textarea {
     transition: var(--transition);
 }
 
-.tool-item i {
+.tool-item i,
+.tool-item img {
     font-size: 32px;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 .tool-item span {
