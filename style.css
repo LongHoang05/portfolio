@@ -21,6 +21,55 @@
   --transition: 0.3s ease;
 }
 
+/* ===================== LIGHT MODE THEME ===================== */
+body.light-mode {
+  --bg-main: #f5f6fa; /* Soft off-white / light blue-gray */
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+
+  --accent-color: #8b5cf6; /* Vibrant Purple from reference */
+  --accent-hover: #7c3aed;
+
+  --text-light: #1f2937; /* Dark Slate Gray for text */
+  --text-muted: #6b7280;
+
+  --border-light: rgba(0, 0, 0, 0.08); /* Darker borders for light mode */
+}
+
+/* Adjust shadows for light mode so cards float nicely */
+body.light-mode .project-card,
+body.light-mode .stat-box,
+body.light-mode .tool-item,
+body.light-mode .contact-form form,
+body.light-mode .sidebar {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft, natural drop shadow */
+}
+
+body.light-mode .bg-gradient-1 {
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(139, 92, 246, 0.3),
+    /* Purple */ transparent 50%
+  );
+}
+
+body.light-mode .bg-gradient-2 {
+  background: radial-gradient(
+    circle at 20% 80%,
+    rgba(147, 197, 253, 0.3),
+    /* Light Blue */ transparent 50%
+  );
+}
+
+body.light-mode .cursor-glow {
+  background: linear-gradient(90deg, #d8b4e2, #a78bfa); /* Light mode glow */
+  mix-blend-mode: multiply; /* Better rendering on light backgrounds */
+}
+
+body.light-mode .project-img.mix-blend-mode {
+  mix-blend-mode: normal; /* Disable screen/luminosity blend tricks on light background */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -112,6 +161,29 @@ a {
 
 .btn-dark:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Light Mode Button Overrides */
+body.light-mode .btn-primary,
+body.light-mode .btn-secondary {
+  /* Soft solid purple instead of bright gradient */
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+body.light-mode .btn-primary:hover,
+body.light-mode .btn-secondary:hover {
+  background: var(--accent-hover);
+}
+
+body.light-mode .btn-dark {
+  background-color: #e5e7eb; /* Soft gray */
+  color: var(--text-light);
+  border-color: #d1d5db;
+}
+
+body.light-mode .btn-dark:hover {
+  background-color: #d1d5db;
 }
 
 /* Highlight text */

@@ -165,6 +165,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ===================== THEME TOGGLE LOGIC =====================
+  const themeToggleBtn = document.querySelector(".theme-toggle");
+  const sunIcon = document.querySelector(".sun-icon");
+  const moonIcon = document.querySelector(".moon-icon");
+
+  // Function to apply the theme
+  const applyTheme = (isLight) => {
+    const reactIcon = document.getElementById("react-icon");
+    const mysqlIcon = document.getElementById("mysql-icon");
+
+    if (isLight) {
+      document.body.classList.add("light-mode");
+      if (sunIcon && moonIcon) {
+        sunIcon.style.display = "none";
+        moonIcon.style.display = "block";
+      }
+      if (reactIcon) reactIcon.src = "assets/imgs/React_light.svg";
+      if (mysqlIcon) mysqlIcon.src = "assets/imgs/MySQL_light.svg";
+      localStorage.setItem("theme", "light");
+    } else {
+      document.body.classList.remove("light-mode");
+      if (sunIcon && moonIcon) {
+        sunIcon.style.display = "block";
+        moonIcon.style.display = "none";
+      }
+      if (reactIcon) reactIcon.src = "assets/imgs/React_dark.svg";
+      if (mysqlIcon) mysqlIcon.src = "assets/imgs/MySQL_dark.svg";
+      localStorage.setItem("theme", "dark");
+    }
+  };
+
+  // Check Local Storage on Load
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    applyTheme(true);
+  } else {
+    applyTheme(false); // default to dark
+  }
+
+  // Toggle button event listener
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+      const isCurrentlyLight = document.body.classList.contains("light-mode");
+      applyTheme(!isCurrentlyLight);
+    });
+  }
+  // =============================================================
+
   // Contact form dummy submission
   const contactForm = document.querySelector(".contact-form");
   if (contactForm) {
