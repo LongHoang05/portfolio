@@ -115,7 +115,7 @@ textarea {
     font-size: 0.85rem;
     color: var(--text-light);
     margin-bottom: 24px;
-    width: max-content;
+    align-self: flex-start;
 }
 
 .tag i {
