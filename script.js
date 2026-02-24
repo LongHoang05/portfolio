@@ -55,6 +55,12 @@ function animateTrail() {
 animateTrail();
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Reset scroll position on refresh
+  if (history.scrollRestoration) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+
   const navButtons = document.querySelectorAll(".nav-btn");
   const tabContents = document.querySelectorAll(".tab-content");
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
