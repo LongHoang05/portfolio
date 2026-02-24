@@ -35,10 +35,27 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-main);
     color: var(--text-light);
     line-height: 1.5;
     overflow-x: hidden;
+    background-color: var(--bg-main);
+}
+
+/* Pseudo element for blurred background image */
+body::before {
+    content: '';
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('https://i.pinimg.com/736x/21/df/b9/21dfb9ee9e02319f3908db66453ef1ea.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(12px) brightness(0.6);
+    /* Blurs and darkens the image so text remains readable */
+    z-index: -2;
 }
 
 /* Base button and link styles */
@@ -106,6 +123,7 @@ textarea {
 /* Label styling */
 .tag {
     display: inline-flex;
+    width: max-content;
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
@@ -115,7 +133,6 @@ textarea {
     font-size: 0.85rem;
     color: var(--text-light);
     margin-bottom: 24px;
-    align-self: flex-start;
 }
 
 .tag i {
