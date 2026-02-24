@@ -1,75 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Walker - Digital Designer & Illustrator</title>
-    
-    <!-- Google Fonts: Inter as the main font (similar to Poppins but very clean for UI) -->
+    <title>Nguyễn Hoàng Long - Web Developer & UI/UX Designer</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Phosphor Icons (Light and clean, matching the design aesthetic) -->
+
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
-    <!-- Main Stylesheet -->
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="dark-theme">
     <div class="app-container">
-        
-        <!-- Sidebar Navigation -->
+
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <!-- Icon placeholder for the cat logo -->
-                    <i class="ph ph-cat"></i>
-                    <h2>Alex<br>Walker</h2>
+                    <i class="ph ph-code"></i>
+                    <h2>Hoàng<br>Long</h2>
                 </div>
             </div>
-            
+
             <div class="avatar-container">
-                <!-- Main user avatar (3D cartoon style placeholder) -->
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/35bf80132336331.61a7a2a46b627.jpg" alt="Alex Walker Avatar" class="avatar">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7dbdf3132336331.61a7a2a472d24.jpg"
+                    alt="Hoang Long Avatar" class="avatar">
             </div>
 
             <div class="info-block specialization">
-                <span class="label">Specialization:</span>
-                <p>UI/UX designer<br>and frontend developer</p>
+                <span class="label">Chuyên môn:</span>
+                <p>Frontend Developer<br>& UI/UX Enthusiast</p>
             </div>
 
             <div class="info-block location">
-                <span class="label">Based in:</span>
-                <p>Odesa, Ukraine</p>
+                <span class="label">Khu vực:</span>
+                <p>Hà Nội, Việt Nam</p>
             </div>
 
             <div class="social-links">
-                <a href="#" class="social-icon" aria-label="Dribbble"><i class="ph-fill ph-dribbble-logo"></i></a>
-                <a href="#" class="social-icon" aria-label="Behance"><i class="ph-fill ph-behance-logo"></i></a>
-                <a href="#" class="social-icon" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
-                <a href="#" class="social-icon" aria-label="Twitch"><i class="ph-fill ph-twitch-logo"></i></a>
-                <a href="#" class="social-icon" aria-label="Pinterest"><i class="ph-fill ph-pinterest-logo"></i></a>
+                <a href="#" class="social-icon" aria-label="Github"><i class="ph-fill ph-github-logo"></i></a>
+                <a href="#" class="social-icon" aria-label="Figma"><i class="ph-fill ph-figma-logo"></i></a>
+                <a href="#" class="social-icon" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
             </div>
 
-            <button class="btn btn-primary cta-btn">Let's Work Together!</button>
+            <button class="btn btn-primary cta-btn">Hợp tác cùng mình!</button>
         </aside>
 
-        <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Top Navigation Bar -->
             <nav class="top-nav">
-                <!-- Hamburger Menu for Mobile -->
                 <button class="mobile-menu-btn d-none">
                     <i class="ph ph-list"></i>
                 </button>
-                
+
                 <ul class="nav-links">
                     <li><button class="nav-btn active" data-tab="home">Home</button></li>
-                    <li><button class="nav-btn" data-tab="portfolio">Portfolio</button></li>
-                    <li><button class="nav-btn" data-tab="about">About Me</button></li>
-                    <li><button class="nav-btn" data-tab="resume">Resume</button></li>
-                    <li><button class="nav-btn" data-tab="contact">Contact</button></li>
+                    <li><button class="nav-btn" data-tab="portfolio">Dự án</button></li>
+                    <li><button class="nav-btn" data-tab="about">Giới thiệu</button></li>
+                    <li><button class="nav-btn" data-tab="resume">Học vấn & KN</button></li>
+                    <li><button class="nav-btn" data-tab="contact">Liên hệ</button></li>
                 </ul>
                 <div class="nav-actions">
                     <button class="theme-toggle" aria-label="Toggle Theme"><i class="ph ph-sun"></i></button>
@@ -77,25 +70,24 @@
                 </div>
             </nav>
 
-            <!-- ===================== HOME TAB ===================== -->
             <section class="tab-content active" id="home">
                 <div class="gradient-sphere-container"></div>
                 <div class="content-wrapper">
-                    <div class="tag"><i class="ph-fill ph-sparkle"></i> Let's meet!</div>
+                    <div class="tag"><i class="ph-fill ph-sparkle"></i> Xin chào!</div>
                     <h1 class="hero-title">
-                        I'm Alex Walker<br>
-                        <span class="highlight">Digital designer</span> and<br>
-                        illustrator.
+                        Mình là Nguyễn Hoàng Long<br>
+                        <span class="highlight">Web Developer</span> và<br>
+                        người đam mê UI/UX.
                     </h1>
                     <div class="hero-actions">
-                        <button class="btn btn-dark" onclick="document.querySelector('[data-tab=\'portfolio\']').click()">
-                            My Works <i class="ph-fill ph-squares-four"></i>
+                        <button class="btn btn-dark"
+                            onclick="document.querySelector('[data-tab=\'portfolio\']').click()">
+                            Xem Dự Án <i class="ph-fill ph-squares-four"></i>
                         </button>
-                        <a href="#" class="download-link">Download CV <i class="ph ph-download-simple"></i></a>
+                        <a href="#" class="download-link">Tải CV <i class="ph ph-download-simple"></i></a>
                     </div>
                 </div>
-                
-                <!-- Circular scroll indicator -->
+
                 <div class="scroll-indicator">
                     <div class="scroll-circle">
                         <svg viewBox="0 0 100 100" width="100" height="100">
@@ -104,7 +96,7 @@
                             </defs>
                             <text font-size="9" font-weight="500" letter-spacing="2">
                                 <textPath href="#circlePath" startOffset="0%">
-                                    SCROLL FOR MORE • SCROLL FOR MORE • 
+                                    SCROLL FOR MORE • SCROLL FOR MORE •
                                 </textPath>
                             </text>
                         </svg>
@@ -113,174 +105,162 @@
                 </div>
             </section>
 
-            <!-- ===================== PORTFOLIO TAB ===================== -->
             <section class="tab-content" id="portfolio">
                 <div class="tag"><i class="ph-fill ph-sparkle"></i> Portfolio</div>
-                <h2 class="section-title">Check out my featured<br>projects</h2>
-                
+                <h2 class="section-title">Các dự án nổi bật<br>gần đây</h2>
+
                 <div class="portfolio-grid">
-                    <!-- Project 1 -->
                     <div class="project-card orange-bg">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1000" alt="3D House Render" class="project-img mix-blend-mode">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
+                            alt="Dashboard" class="project-img mix-blend-mode">
                         <div class="project-tags">
-                            <span class="p-tag">Illustrations</span>
-                            <span class="p-tag">3D Render</span>
+                            <span class="p-tag">React & Tailwind</span>
+                            <span class="p-tag">Thế Giới Dừa Dashboard</span>
                         </div>
                     </div>
-                    <!-- Project 2 -->
                     <div class="project-card purple-bg">
-                        <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=1000" alt="UI App Mockup" class="project-img mix-blend-mode">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000"
+                            alt="Code App" class="project-img mix-blend-mode">
                         <div class="project-tags">
-                            <span class="p-tag">UI Design</span>
-                            <span class="p-tag">Figma</span>
+                            <span class="p-tag">Tauri Framework</span>
+                            <span class="p-tag">Desktop App</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ===================== ABOUT ME TAB ===================== -->
             <section class="tab-content" id="about">
-                <div class="tag"><i class="ph-fill ph-sparkle"></i> About Me</div>
-                <h2 class="section-title">Turning complex problems<br>into simple design</h2>
-                
+                <div class="tag"><i class="ph-fill ph-sparkle"></i> Về mình</div>
+                <h2 class="section-title">Biến những bài toán phức tạp<br>thành giao diện đơn giản</h2>
+
                 <div class="stats-row">
                     <div class="stat-box">
-                        <div class="stat-number">40+</div>
-                        <div class="stat-label">Happy clients</div>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Năm học tại UNETI</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-number">2+</div>
-                        <div class="stat-label">Years of experience</div>
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Đồ án & Dự án nhỏ</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Projects done</div>
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Giờ code & bug</div>
                     </div>
                 </div>
 
                 <div class="about-grid">
                     <div class="about-text">
-                        <p>I wonder if I've been changed in the night? Let me think. Was I the same when I got up this morning? I almost think I can remember feeling a little different. But if I'm not the same, the <span class="highlight">next question</span> is "Who in the world am I?". Ah, that's the great puzzle!</p>
+                        <p>Là một sinh viên năm 3 tràn đầy năng lượng tại <span class="highlight">Đại Học Kinh Tế Kỹ
+                                Thuật Công Nghiệp (UNETI)</span>, mình luôn tò mò và khao khát học hỏi những công nghệ
+                            mới nhất.</p>
                         <br>
-                        <p>Be what you would seem to be - or, if you'd like it put more simply - never imagine yourself not to be otherwise than what it might appear to others that what you were or <span class="highlight">might have been</span> was not otherwise than what you had been would have appeared to them to be otherwise.</p>
-                        
-                        <a href="#" class="btn btn-secondary download-btn" style="margin-top: 2rem;">Download CV <i class="ph ph-download-simple"></i></a>
+                        <p>Mình có niềm đam mê đặc biệt với việc thiết kế UI/UX trên Figma, viết các dòng lệnh CSS chuẩn
+                            xác, và lắp ráp chúng thành các ứng dụng thực tế thông qua React hoặc Tauri. Mình tin rằng
+                            một lập trình viên giỏi không chỉ biết viết code chạy được, mà còn phải mang lại <span
+                                class="highlight">trải nghiệm hoàn hảo</span> cho người dùng cuối.</p>
+
+                        <a href="#" class="btn btn-secondary download-btn" style="margin-top: 2rem;">Tải CV <i
+                                class="ph ph-download-simple"></i></a>
                     </div>
                     <div class="about-info">
                         <div class="info-item">
-                            <div class="label">Name</div>
-                            <div class="value">Alex Walker</div>
+                            <div class="label">Họ và tên</div>
+                            <div class="value">Nguyễn Hoàng Long</div>
                         </div>
                         <div class="info-item">
-                            <div class="label">Phone</div>
-                            <div class="value">+1 212-708-9400</div>
+                            <div class="label">Trường ĐH</div>
+                            <div class="value">UNETI Hà Nội</div>
                         </div>
                         <div class="info-item">
                             <div class="label">Email</div>
-                            <div class="value">hello@yourdomain.com</div>
+                            <div class="value">long.nguyen@student.uneti.edu.vn</div>
                         </div>
                         <div class="info-item">
-                            <div class="label">Location</div>
-                            <div class="value">Odesa, Ukraine</div>
+                            <div class="label">Nơi ở</div>
+                            <div class="value">Hà Nội, Việt Nam</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ===================== RESUME TAB ===================== -->
             <section class="tab-content scrollable" id="resume">
-                <div class="tag"><i class="ph-fill ph-sparkle"></i> Resume</div>
-                <h2 class="section-title">Education and practical<br>experience</h2>
-                <p class="section-subtitle">Be what you would seem to be - or, if you'd like it put more simply - never imagine yourself not to be otherwise than what it might appear to others that what you were or <span class="highlight">might have been</span> was not otherwise than what you had been would have appeared to them to be otherwise.</p>
+                <div class="tag"><i class="ph-fill ph-sparkle"></i> Học vấn & Kỹ năng</div>
+                <h2 class="section-title">Hành trình học tập<br>và thực chiến</h2>
 
-                <h3 class="subsection-title">My education</h3>
+                <h3 class="subsection-title">Học vấn</h3>
                 <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">2015 - 2016</div>
-                        <div class="timeline-content">
-                            <h4 class="timeline-role">Drawing Concentration</h4>
-                            <div class="timeline-place">Course by New York Academy of Art</div>
-                        </div>
-                        <div class="timeline-desc">Intensive drawing courses that present the fundamental principles of drawing.</div>
-                    </div>
                     <div class="timeline-item border-none">
-                        <div class="timeline-year">2019 - 2021</div>
+                        <div class="timeline-year">2023 - Nay</div>
                         <div class="timeline-content">
-                            <h4 class="timeline-role">UI/UX Design Specialization</h4>
-                            <div class="timeline-place">Course by California Institute of Arts</div>
+                            <h4 class="timeline-role">Sinh viên năm 3 - Ngành Công nghệ thông tin</h4>
+                            <div class="timeline-place">Đại Học Kinh Tế Kỹ Thuật Công Nghiệp Hà Nội (UNETI)</div>
                         </div>
-                        <div class="timeline-desc">Research, design, and prototype effective, visually-driven websites and apps.</div>
+                        <div class="timeline-desc">Tập trung nghiên cứu chuyên sâu về Kỹ thuật phần mềm, cấu trúc dữ
+                            liệu, và quy trình làm việc nhóm bằng Git. Tích cực tham gia các project môn học liên quan
+                            đến lập trình Web.</div>
                     </div>
                 </div>
 
-                <h3 class="subsection-title">Work experience</h3>
+                <h3 class="subsection-title">Dự án thực tế</h3>
                 <div class="timeline">
-                    <!-- Standard placeholder info for UI/UX work experience to match the design style -->
-                    <div class="timeline-item">
-                        <div class="timeline-year">2021 - 2022</div>
-                        <div class="timeline-content">
-                            <h4 class="timeline-role">Junior UI/UX Designer</h4>
-                            <div class="timeline-place">Creative Studio, Ukraine</div>
-                        </div>
-                        <div class="timeline-desc">Assisted in creating wireframes, interactive prototypes, and modern UI designs for web applications.</div>
-                    </div>
                     <div class="timeline-item border-none">
-                        <div class="timeline-year">2022 - Present</div>
+                        <div class="timeline-year">2025 - Nay</div>
                         <div class="timeline-content">
-                            <h4 class="timeline-role">Senior Frontend Developer</h4>
-                            <div class="timeline-place">Freelance</div>
+                            <h4 class="timeline-role">Frontend Developer & UI Designer</h4>
+                            <div class="timeline-place">Dự án: Thế Giới Dừa Dashboard</div>
                         </div>
-                        <div class="timeline-desc">Leading frontend development and bridging the gap between design and technical implementation.</div>
+                        <div class="timeline-desc">Tự tay thiết kế wireframe, sitemap và phát triển giao diện quản lý
+                            kho hàng, đơn hàng cho cửa hàng bằng React kết hợp Tailwind CSS. Xử lý logic hiển thị và tối
+                            ưu hóa UI/UX cho người dùng nội bộ.</div>
                     </div>
                 </div>
 
-                <h3 class="subsection-title">My favourite tools</h3>
+                <h3 class="subsection-title">Công cụ & Công nghệ yêu thích</h3>
                 <div class="tools-grid">
-                    <div class="tool-item"><span>Ps</span></div>
-                    <div class="tool-item"><span>Figma</span></div>
-                    <div class="tool-item"><span>Ai</span></div>
-                    <div class="tool-item"><span>Sketch</span></div>
-                    <div class="tool-item"><span>Blender</span></div>
+                    <div class="tool-item"><span style="font-weight: 600; font-size: 14px;">React</span></div>
+                    <div class="tool-item"><span style="font-weight: 600; font-size: 14px;">Tailwind</span></div>
+                    <div class="tool-item"><span style="font-weight: 600; font-size: 14px;">Figma</span></div>
+                    <div class="tool-item"><span style="font-weight: 600; font-size: 14px;">Git</span></div>
+                    <div class="tool-item"><span style="font-weight: 600; font-size: 14px;">Tauri</span></div>
                 </div>
             </section>
 
-            <!-- ===================== CONTACT TAB ===================== -->
             <section class="tab-content" id="contact">
-                <div class="tag"><i class="ph-fill ph-sparkle"></i> Contact</div>
-                <h2 class="section-title">Let's make something<br>awesome together!</h2>
-                
+                <div class="tag"><i class="ph-fill ph-sparkle"></i> Liên hệ</div>
+                <h2 class="section-title">Cùng nhau tạo ra<br>những sản phẩm tuyệt vời!</h2>
+
                 <form class="contact-form">
                     <div class="form-row">
                         <div class="input-group">
-                            <input type="text" id="name" required placeholder="Your Name*">
+                            <input type="text" id="name" required placeholder="Tên của bạn*">
                         </div>
                         <div class="input-group">
-                            <input type="text" id="company" placeholder="Company Name">
+                            <input type="text" id="company" placeholder="Công ty / Tổ chức">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-group">
-                            <input type="email" id="email" required placeholder="Email Address*">
+                            <input type="email" id="email" required placeholder="Địa chỉ Email*">
                         </div>
                         <div class="input-group">
-                            <input type="tel" id="phone" required placeholder="Phone Number*">
+                            <input type="tel" id="phone" required placeholder="Số điện thoại*">
                         </div>
                     </div>
                     <div class="input-group full-width">
-                        <textarea id="message" required placeholder="A Few Words*"></textarea>
+                        <textarea id="message" required placeholder="Bạn muốn nhắn nhủ điều gì?*"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary submit-btn">
-                        Send Message <i class="ph ph-paper-plane-tilt"></i>
+                        Gửi tin nhắn <i class="ph ph-paper-plane-tilt"></i>
                     </button>
                 </form>
             </section>
         </main>
     </div>
 
-    <!-- Background decorative gradients -->
     <div class="bg-gradient bg-gradient-1"></div>
     <div class="bg-gradient bg-gradient-2"></div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
