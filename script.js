@@ -4,32 +4,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinksList = document.querySelector('.nav-links');
 
-    // Tab switching logic
+    // Smooth scrolling and scroll spy logic
     navButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons and tabs
-            navButtons.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
 
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            // Find target tab and make it active
             const targetTabId = btn.getAttribute('data-tab');
-            const targetTab = document.getElementById(targetTabId);
-            
-            if (targetTab) {
-                targetTab.classList.add('active');
-                
-                // Add a small fade-in animation by resetting the animation
-                targetTab.style.animation = 'none';
-                targetTab.offsetHeight; /* trigger reflow */
-                targetTab.style.animation = null; 
+            const targetElement = document.getElementById(targetTabId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
 
             // On mobile, close menu after clicking
             if (window.innerWidth <= 768 && navLinksList.classList.contains('show')) {
                 navLinksList.classList.remove('show');
+            }
+        });
+    });
+
+    // Scroll spy: update active nav link based on scroll position
+    window.addEventListener('scroll', () => {
+        let current = '';
+        tabContents.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-tab') === current) {
+                btn.classList.add('active');
             }
         });
     });
@@ -48,11 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const btn = contactForm.querySelector('.submit-btn');
             const originalText = btn.innerHTML;
-            
+
             btn.innerHTML = 'Sent Successfully! <i class="ph ph-check"></i>';
             btn.style.backgroundColor = '#a8e6cf'; // Success color
             btn.style.color = '#0a0a0a';
-            
+
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.backgroundColor = '';

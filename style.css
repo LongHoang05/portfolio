@@ -3,20 +3,21 @@
     --bg-main: #0a0a0a;
     --bg-secondary: rgba(25, 25, 25, 0.6);
     --bg-card: #151515;
-    
-    --accent-color: #ffcdc2; /* Pastel pink/peach */
+
+    --accent-color: #ffcdc2;
+    /* Pastel pink/peach */
     --accent-hover: #ffb8aa;
-    
+
     --text-light: #ffffff;
     --text-muted: #888888;
-    
+
     --border-light: rgba(255, 255, 255, 0.08);
-    
+
     --border-radius-lg: 32px;
     --border-radius-md: 20px;
     --border-radius-sm: 12px;
     --border-radius-pill: 50px;
-    
+
     --transition: 0.3s ease;
 }
 
@@ -60,6 +61,7 @@ a {
     background-color: var(--accent-color);
     color: var(--bg-main);
 }
+
 .btn-primary:hover {
     background-color: var(--accent-hover);
     transform: translateY(-2px);
@@ -69,6 +71,7 @@ a {
     background-color: var(--accent-color);
     color: var(--bg-main);
 }
+
 .btn-secondary:hover {
     background-color: var(--accent-hover);
 }
@@ -78,8 +81,9 @@ a {
     color: var(--text-light);
     border: 1px solid var(--border-light);
 }
+
 .btn-dark:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Highlight text */
@@ -88,7 +92,8 @@ a {
 }
 
 /* Form element base */
-input, textarea {
+input,
+textarea {
     font-family: 'Inter', sans-serif;
 }
 
@@ -105,6 +110,7 @@ input, textarea {
     color: var(--text-light);
     margin-bottom: 24px;
 }
+
 .tag i {
     color: var(--text-light);
 }
@@ -131,7 +137,8 @@ input, textarea {
     padding: 32px 24px;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 48px); /* 24px top/bottom padding */
+    height: calc(100vh - 48px);
+    /* 24px top/bottom padding */
     position: sticky;
     top: 24px;
     z-index: 10;
@@ -149,9 +156,11 @@ input, textarea {
     align-items: center;
     gap: 12px;
 }
+
 .logo i {
     font-size: 32px;
 }
+
 .logo h2 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -165,7 +174,8 @@ input, textarea {
     border-radius: var(--border-radius-md);
     overflow: hidden;
     margin-bottom: 32px;
-    background-color: #fce7e3; /* Light background for avatar */
+    background-color: #fce7e3;
+    /* Light background for avatar */
 }
 
 .avatar {
@@ -177,6 +187,7 @@ input, textarea {
 .info-block {
     margin-bottom: 24px;
 }
+
 .info-block .label {
     display: block;
     font-size: 0.75rem;
@@ -185,6 +196,7 @@ input, textarea {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+
 .info-block p {
     font-size: 0.95rem;
     font-weight: 500;
@@ -193,8 +205,10 @@ input, textarea {
 .social-links {
     display: flex;
     gap: 12px;
-    margin-bottom: auto; /* Pushes the CTA to the bottom */
+    margin-bottom: auto;
+    /* Pushes the CTA to the bottom */
 }
+
 .social-icon {
     width: 40px;
     height: 40px;
@@ -207,6 +221,7 @@ input, textarea {
     color: var(--text-light);
     font-size: 1.2rem;
 }
+
 .social-icon:hover {
     background-color: var(--text-light);
     color: var(--bg-main);
@@ -222,7 +237,8 @@ input, textarea {
     flex: 1;
     display: flex;
     flex-direction: column;
-    min-width: 0; /* Prevents flex flex-child from overflowing */
+    min-width: 0;
+    /* Prevents flex flex-child from overflowing */
 }
 
 /* ===================== TOP NAVIGATION ===================== */
@@ -289,26 +305,27 @@ input, textarea {
     cursor: pointer;
     transition: transform var(--transition);
 }
+
 .theme-toggle:hover {
     transform: rotate(45deg);
 }
 
 /* ===================== TAB CONTENTS ===================== */
 .tab-content {
-    display: none;
-    animation: fadeIn 0.4s ease forwards;
-    flex: 1;
+    /* Removed display: none and animation for scrollable layout */
+    display: flex;
+    flex-direction: column;
     position: relative;
-    padding-bottom: 40px;
+    padding-bottom: 80px;
+    /* Increased bottom padding to space out sections */
+    padding-top: 40px;
+    /* Added top padding for scroll anchor offset */
 }
 
-.tab-content.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Optional: Add a subtle border or separator between sections if desired */
+.tab-content:not(:last-child) {
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 40px;
 }
 
 .section-title {
@@ -330,12 +347,10 @@ input, textarea {
 
 /* ===================== HOME TAB ===================== */
 #home {
-    display: none; /* Controlled by .active */
-    flex-direction: column;
+    /* Removed display constraints for scrollable layout */
     justify-content: center;
-}
-#home.active {
-    display: flex;
+    min-height: calc(100vh - 120px);
+    /* Make home section take up most of initial viewport */
 }
 
 .content-wrapper {
@@ -365,6 +380,7 @@ input, textarea {
     font-weight: 500;
     color: var(--text-muted);
 }
+
 .download-link:hover {
     color: var(--text-light);
 }
@@ -398,6 +414,7 @@ input, textarea {
     height: 100%;
     animation: rotate 15s linear infinite;
 }
+
 .scroll-circle text {
     fill: var(--text-light);
 }
@@ -409,8 +426,13 @@ input, textarea {
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ===================== PORTFOLIO TAB ===================== */
@@ -434,6 +456,7 @@ input, textarea {
 .orange-bg {
     background-color: #f7dac4;
 }
+
 .purple-bg {
     background-color: #d1cbf9;
 }
@@ -443,7 +466,7 @@ input, textarea {
     height: 90%;
     object-fit: cover;
     border-radius: var(--border-radius-md);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Use mix-blend-mode if images have white backgrounds, or just display them normally if they are transparent PNGs / nice photos */
@@ -549,7 +572,8 @@ input, textarea {
     gap: 32px;
     border-bottom: 1px solid var(--border-light);
     margin-bottom: 48px;
-    margin-left: -1px; /* Align border */
+    margin-left: -1px;
+    /* Align border */
 }
 
 /* Sub-items border trick */
@@ -633,7 +657,8 @@ input, textarea {
     margin-bottom: 64px;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     background: transparent;
     border: none;
@@ -650,11 +675,13 @@ textarea {
     min-height: 60px;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     border-bottom-color: var(--accent-color);
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: var(--text-muted);
 }
 
@@ -690,12 +717,22 @@ input::placeholder, textarea::placeholder {
 
 /* ===================== RESPONSIVE DESIGN ===================== */
 @media (max-width: 1200px) {
-    .hero-title { font-size: 4rem; }
-    .section-title { font-size: 3rem; }
-    .portfolio-grid { grid-template-columns: 1fr; }
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
     .timeline-item {
         grid-template-columns: 100px 1fr;
     }
+
     .timeline-desc {
         grid-column: 2 / span 1;
         margin-top: 16px;
@@ -703,8 +740,11 @@ input::placeholder, textarea::placeholder {
 }
 
 @media (max-width: 992px) {
-    .app-container { flex-direction: column; padding: 16px; }
-    
+    .app-container {
+        flex-direction: column;
+        padding: 16px;
+    }
+
     .sidebar {
         width: 100%;
         height: auto;
@@ -716,17 +756,51 @@ input::placeholder, textarea::placeholder {
         z-index: 10;
         margin-bottom: 24px;
     }
-    
-    .sidebar-header { margin-bottom: 0; margin-right: 24px; }
-    .avatar-container { width: 80px; margin-bottom: 0; margin-right: 24px; }
-    .info-block { margin-bottom: 0; margin-right: 24px; }
-    .social-links { margin-bottom: 0; margin-right: 24px; margin-top: 16px; }
-    .cta-btn { width: auto; margin-top: 16px; }
-    
-    .about-grid { grid-template-columns: 1fr; }
-    .stats-row { grid-template-columns: 1fr; gap: 16px; }
-    .hero-title { font-size: 3.5rem; }
-    .hero-actions { flex-direction: column; align-items: flex-start; }
+
+    .sidebar-header {
+        margin-bottom: 0;
+        margin-right: 24px;
+    }
+
+    .avatar-container {
+        width: 80px;
+        margin-bottom: 0;
+        margin-right: 24px;
+    }
+
+    .info-block {
+        margin-bottom: 0;
+        margin-right: 24px;
+    }
+
+    .social-links {
+        margin-bottom: 0;
+        margin-right: 24px;
+        margin-top: 16px;
+    }
+
+    .cta-btn {
+        width: auto;
+        margin-top: 16px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 @media (max-width: 768px) {
@@ -736,31 +810,53 @@ input::placeholder, textarea::placeholder {
         gap: 24px;
         position: relative;
     }
-    
-    .mobile-menu-btn { display: block; }
-    
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
     .nav-links {
-        display: none; /* Hide by default on mobile, toggle with JS */
+        display: none;
+        /* Hide by default on mobile, toggle with JS */
         flex-direction: column;
         width: 100%;
         position: absolute;
         top: 60px;
         z-index: 20;
     }
-    
-    .nav-links.show { display: flex; }
-    
-    .hero-title { font-size: 3rem; }
-    .section-title { font-size: 2.5rem; }
-    
-    .scroll-indicator { display: none; }
-    
-    .form-row { grid-template-columns: 1fr; gap: 32px; }
-    
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
     .timeline-item {
         grid-template-columns: 1fr;
         padding-left: 24px;
     }
-    .timeline-item::before { left: -6px; }
-    .timeline-desc { grid-column: 1 / span 1; margin-top: 8px; }
+
+    .timeline-item::before {
+        left: -6px;
+    }
+
+    .timeline-desc {
+        grid-column: 1 / span 1;
+        margin-top: 8px;
+    }
 }
