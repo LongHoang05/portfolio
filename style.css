@@ -99,7 +99,7 @@ body {
   height: 20px;
   border-radius: 50%;
   background: linear-gradient(90deg, #ffc5bf, #e3c5eb);
-  pointer-events: none; /* Xuyên thấu click chuột */
+  pointer-events: none !important; /* QUAN TRỌNG: Không block click xuống nút */
   z-index: 9999;
   mix-blend-mode: screen; /* Làm màu hòa trộn vào nền tối nhìn ảo hơn */
   will-change: transform; /* Tối ưu hiệu năng chuyển động */
@@ -1016,6 +1016,13 @@ textarea::placeholder {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    justify-items: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1059,6 +1066,11 @@ textarea::placeholder {
   .form-row {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .timeline-item {

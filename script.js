@@ -2,57 +2,82 @@
 // ==========================================
 // HIỆU ỨNG DẢI MÀU ĐUỔI THEO CHUỘT (TRAIL)
 // ==========================================
-const dots = [];
-const numDots = 20; // Số lượng đốt (Tăng lên nếu muốn đuôi dài hơn)
-
-// Tự động tạo các thẻ div làm đốt của dải màu
-for (let i = 0; i < numDots; i++) {
-  const dot = document.createElement("div");
-  dot.className = "cursor-glow";
-  document.body.appendChild(dot);
-  dots.push({
-    x: 0,
-    y: 0,
-    element: dot,
-  });
-}
-
+let dots = [];
+const numDots = 20;
 let mouseX = 0;
 let mouseY = 0;
+let trailAnimationId = null;
 
-// Lấy tọa độ chuột
-window.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+// Hàm khởi tạo và chạy hiệu ứng chuột
+function initCursorTrail() {
+  if (window.innerWidth <= 768) return; // Không chạy trên mobile
 
-// Hàm tạo chuyển động rượt đuổi
-function animateTrail() {
-  let x = mouseX;
-  let y = mouseY;
+  // Chỉ tạo DOM ảo nếu chưa có
+  if (dots.length === 0) {
+    for (let i = 0; i < numDots; i++) {
+      const dot = document.createElement("div");
+      dot.className = "cursor-glow";
+      document.body.appendChild(dot);
+      dots.push({ x: 0, y: 0, element: dot });
+    }
 
-  dots.forEach((dot, index) => {
-    // Tốc độ đuổi: 0.3 (càng nhỏ đuôi càng dài và lơi ra)
-    dot.x += (x - dot.x) * 0.3;
-    dot.y += (y - dot.y) * 0.3;
+    // Đăng ký event một lần
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+  }
 
-    // Tính toán để đốt nhỏ dần và mờ dần về cuối đuôi
-    const scale = (numDots - index) / numDots;
-    const opacity = (numDots - index) / numDots;
+  // Nếu đang không chạy (hoặc bị dừng trước đó), kích hoạt lại
+  if (!trailAnimationId) {
+    const animateTrail = () => {
+      let x = mouseX;
+      let y = mouseY;
 
-    dot.element.style.transform = `translate(${dot.x}px, ${dot.y}px) scale(${scale})`;
-    dot.element.style.opacity = opacity;
+      dots.forEach((dot, index) => {
+        dot.x += (x - dot.x) * 0.3;
+        dot.y += (y - dot.y) * 0.3;
+        const scale = (numDots - index) / numDots;
+        const opacity = (numDots - index) / numDots;
+        dot.element.style.transform = `translate(${dot.x}px, ${dot.y}px) scale(${scale})`;
+        dot.element.style.opacity = opacity;
+        x = dot.x;
+        y = dot.y;
+      });
 
-    // Cập nhật tọa độ để đốt tiếp theo rượt theo đốt hiện tại
-    x = dot.x;
-    y = dot.y;
-  });
+      trailAnimationId = requestAnimationFrame(animateTrail);
+    };
 
-  requestAnimationFrame(animateTrail); // Lặp lại liên tục 60 khung hình/giây
+    animateTrail();
+  }
 }
 
-// Kích hoạt hiệu ứng
-animateTrail();
+// Hàm dọn dẹp bộ nhớ trên mobile
+function destroyCursorTrail() {
+  if (trailAnimationId) {
+    cancelAnimationFrame(trailAnimationId);
+    trailAnimationId = null;
+  }
+  // Xóa thẻ DOM khỏi HTML
+  dots.forEach((dot) => {
+    if (dot.element && dot.element.parentNode) {
+      dot.element.parentNode.removeChild(dot.element);
+    }
+  });
+  dots = []; // Xóa Array để giải phóng bộ nhớ
+}
+
+// Chạy lần đầu
+initCursorTrail();
+
+// Lắng nghe sự kiện xoay ngang/dọc điện thoại hoặc kéo thả cửa sổ Resize
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 768) {
+    destroyCursorTrail(); // Tắt hoàn toàn Tracking tọa độ, giải phóng DOM/RAM
+  } else {
+    initCursorTrail(); // Bật lại nếu kéo màn hình ra to
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   // Reset scroll position on refresh
@@ -217,7 +242,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.querySelector(".contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
+      // 1. Kiểm tra Validate chuẩn HTML5
+      if (!contactForm.checkValidity()) {
+        return; // Dừng lại ở đây, để trình duyệt tự hiện tooltip báo lỗi trống
+      }
+
+      // 2. Chặn load lại trang nếu Validation đã Pass
       e.preventDefault();
+
       const btn = contactForm.querySelector(".submit-btn");
       const originalText = btn.innerHTML;
 
